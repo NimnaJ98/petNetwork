@@ -1,0 +1,18 @@
+body{
+    background: #f8f8f8 !important;
+}
+
+.nav{
+    border-radius: 25px !important;
+    margin: 15px !important;
+    height: 50px !important;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0, 0.1) !important;
+    background: linear-gradient(45deg, #E35244,#deeb6c) !important;
+    padding: 10px 0 10px 0 !important;
+}
+.mb-7{
+    margin-bottom: 7px !important;
+}
+.button{
+    background-color: #E35244;
+}
