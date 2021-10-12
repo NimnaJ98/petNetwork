@@ -18,6 +18,15 @@ class Profile(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
 
+    #to grab all the friends to show in petProfile
+    def get_friends(self):
+        return self.friends.all()
+
+    #to grab all the count of friends to show in petProfile
+    def get_friends_no(self):
+        return self.friends.all().count()
+
+
     def __str__(self):
         return f"{self.user.username}-{self.created.strftime('%d-%m-%y')}"
 

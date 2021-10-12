@@ -7,7 +7,28 @@
 
 
 {% block content %}
-    <h1>Pet Profile</h1>
+    <h1>Pet Profile: {{profile}} </h1>
+    <hr>
+    <img src={{profile.avatar.url}} style="height: 500px; width: parent;">
+    <br>
+    {{profile.avatar.url}}
+    <br>
+    {{profile.avatar}}
+    <hr>
+    {{profile.name}}
+    <br>
+    {{profile.pet_type}}
+    <br>
+    {{profile.bio}}
+    <br>
+    {{profile.get_friends_no}}
+    <br>
+    <ul>
+    {% for friend in profile.get_friends %}
+        <li>{{friend}} </li>
+    {% endfor %}
+    </ul>
+        
 {% endblock content %}
     
     
