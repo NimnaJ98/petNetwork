@@ -1,34 +1,101 @@
-{% extends 'base.html' %}
+            {% extends 'base.html' %}
 
 
-{% block title %}
-    pet profile
-{% endblock title %}
+            {% block title %}
+                pet profile
+            {% endblock title %}
 
 
-{% block content %}
-    <h1>Pet Profile: {{profile}} </h1>
-    <hr>
-    <img src={{profile.avatar.url}} style="height: 500px; width: parent;">
-    <br>
-    {{profile.avatar.url}}
-    <br>
-    {{profile.avatar}}
-    <hr>
-    {{profile.name}}
-    <br>
-    {{profile.pet_type}}
-    <br>
-    {{profile.bio}}
-    <br>
-    {{profile.get_friends_no}}
-    <br>
-    <ul>
-    {% for friend in profile.get_friends %}
-        <li>{{friend}} </li>
-    {% endfor %}
-    </ul>
-        
-{% endblock content %}
-    
-    
+            {% block content %}
+            <!--modal-->
+            <div class="ui modal petmodal">
+                <i class="close icon"></i>
+                <div class="header">
+                Update Your Profile
+                </div>
+                <div class="image content">
+                <div class="ui medium image">
+                    <img src="{{profile.avatar.url}}">
+                </div>
+                
+                <div class="description leftPart" style="margin-left: 40px;">
+                    <div class="ui header">Provide some newest info about you.</div>
+                   
+                        <form action="" method="POST" class="ui form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form.as_p}}   
+                
+                
+                        <div class="actions">
+                            <button class="ui black right labeled icon button" type="submit">
+                            Update
+                            <i class="checkmark icon"></i>
+                            </button>
+                        </div> 
+                        </form>
+                </div>
+            </div>
+        </div>
+   
+
+
+            <div class="ui segment">
+                {% if confirm %}
+                    <div class="ui orange message">Your profile has been updated.</div>
+                {% endif %} 
+                <h3>My Profile: {{request.user}}</h3>
+                <div class="ui grid">
+                <div class="row">
+                    <div class="six wide column">
+                        <img src="{{profile.avatar.url}}" class="ui medium rounded image">
+                        <div class="row mt-5">
+                            <button class="ui secondary button" id='modal-btn'>Update Your Profile</button>
+                        </div>
+                    </div>
+                    <div class="ten wide column">
+                        <table class="ui table">
+                            <tbody>
+                                <tr>
+                                    <td>Username</td>
+                                    <td>{{profile.user}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>{{profile.name}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Bio</td>
+                                    <td>{{profile.bio}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Pet Type</td>
+                                    <td>{{profile.pet_type}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Number of Friends</td>
+                                    <td>{{profile.get_friends_no}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Friends</td>
+                                    <td>
+                                        <ul>
+                                            
+                                            {% for friend in profile.get_friends %}
+                                                <li>{{friend}}</li>
+                                            {% endfor %}      
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+
+            
+            {% endblock content %}
+                
+                
