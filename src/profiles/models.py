@@ -17,7 +17,6 @@ class Profile(models.Model):
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
-
     #to grab all the friends to show in petProfile
     def get_friends(self):
         return self.friends.all()
@@ -48,11 +47,8 @@ class Profile(models.Model):
         posts = self.posts.all()
         total_liked = 0
         for item in posts:
-            total_liked += item.liked.all().count()
+            total_liked += item.like_set.all().count()
         return total_liked
-
-
-
 
     def __str__(self):
         return f"{self.user.username}-{self.created.strftime('%d-%m-%y')}"
