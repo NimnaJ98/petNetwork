@@ -26,6 +26,33 @@ class Profile(models.Model):
     def get_friends_no(self):
         return self.friends.all().count()
 
+    #to grab all the count of posts to show in petProfile
+    def get_post_no(self):
+        return self.posts.all().count()
+
+    #to grab all the posts to show in petProfile
+    def get_all_authors_posts(self):
+        return self.posts.all()
+
+    #to grab the no of likes given by the user
+    def get_likes_given_no(self):
+        Likes = self.like_set.all()
+        total_liked = 0
+        for item in Likes:
+            if item.value == 'Like':
+                total_liked += 1
+        return total_liked
+
+    #to grab the no of likes the user was received
+    def get_likes_received_no(self):
+        posts = self.posts.all()
+        total_liked = 0
+        for item in posts:
+            total_liked += item.liked.all().count()
+        return total_liked
+
+
+
 
     def __str__(self):
         return f"{self.user.username}-{self.created.strftime('%d-%m-%y')}"
