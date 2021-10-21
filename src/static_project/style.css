@@ -12,7 +12,13 @@ body{
     top: 200px !important;
     border-radius: 20px !important;
 }
+.w-full{
+    background: #deeb6c !important;
 
+}
+.btnSend{
+    background: #E35244 !important;
+}
 .nav{
     border-radius: 25px !important;
     margin: 15px !important;

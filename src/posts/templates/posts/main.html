@@ -3,8 +3,8 @@
 {% block title %}main page{% endblock title %}
 
 {% block content %}
-<div class="ui grid">
-    <div class="eleven wide column">
+<div class="ui grid mt-5">
+    <div class="twelve wide column">
         {% for obj in qs %}
 
         <div class="ui fluid card">
@@ -80,15 +80,15 @@
 
         {% endfor %}
     </div>
-    <div class="five wide column">
-        <div class="ui segment">
+    <div class="four wide column">
+        <div class="ui segment" style="width: 400px !important; margin-left: 35px;">
             {% if post_added %}
                 <div class="ui green message">Post added</div>
             {% endif %}
             <form action="" method="POST" class='ui form' enctype="multipart/form-data">
                 {% csrf_token %}
-                {{p_form}}
-                <button type='submit' name="submit_p_form" class="ui positive button w-full mt-5">Send</button>
+                {{p_form.as_p}}
+                <button type='submit' name="submit_p_form" class="ui positive button btnSend w-full mt-5">Send</button>
             </form>
         </div>
     </div>

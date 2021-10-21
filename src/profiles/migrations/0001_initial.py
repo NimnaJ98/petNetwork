@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('pet_type', models.CharField(blank=True, max_length=200)),
                 ('bio', models.TextField(default='no bio...', max_length=300)),
                 ('email', models.EmailField(blank=True, max_length=200)),
-                ('avatar', models.ImageField(default='avatar.png', upload_to='')),
+                ('avatar', models.ImageField(default='avatar_paw.png', upload_to='')),
                 ('slug', models.SlugField(blank=True, unique=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
