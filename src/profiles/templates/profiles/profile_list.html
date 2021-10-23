@@ -23,37 +23,37 @@
                     <div class="thirteen wide column">
                         <h3>{{obj.user}}</h3>
                         <p>{{obj.bio}}</p>
-                        <Button class="ui black button">See Profile</Button>
+                        <Button class="ui black button mb-5 w-big">See Profile</Button>
                     
                     <!--For adding friends-->
-                    <form action="" method="post">
+                    {% if obj.user not in rel_receiver and obj.user not in rel_sender %}
+                    <form action="{% url 'profiles:send-invite' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="profile_pk" value={{obj.pk}}>
                         <br>
-                        {% if obj.user not in rel_receiver and obj.user not in rel_sender %}
-                            <button type="submit" class="ui black basic button">
-                                <i class="plus square icon"></i>Add to Friends
-                            </button>
-                        {% endif %}            
+                        <button type="submit" class="ui black basic button mb-5 w-big">
+                            <i class="plus square icon"></i>Add to Friends
+                        </button>        
                     </form>
-                    
+                    {% endif %}
+                    <br><br>
                     {% if obj.user in rel_receiver and request.user not in obj.friends.all %}
-                            <button class="ui disabled button">
-                                <i class="user icon"></i>Waiting for Approval
+                            <button class="ui disabled button mb-5 w-big">
+                                <i class="paw icon"></i>Waiting for Approval
                             </button>
                     {% endif %}
 
                     <!--For removing friends-->
-                    <form action="" method="post">
+                    {% if request.user in obj.friends.all %}
+                    <form action="{% url 'profiles:remove-friend' %}" method="post">
                         {% csrf_token %}
                         <input type="hidden" name="profile_pk" value={{obj.pk}}>
                         
-                        {% if request.user in obj.friends.all %}
-                            <button type="submit" class="ui negative basic button">
-                                <i class="minus square icon"></i>Remove Friend
-                            </button>
-                        {% endif %}
+                        <button type="submit" class="ui negative basic button mb-5 w-big">
+                            <i class="minus square icon"></i>Remove Friend
+                        </button>
                     </form>
+                    {% endif %}
                 </div>
                 </div>
             </div>

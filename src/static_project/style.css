@@ -19,6 +19,9 @@ body{
 .btnSend{
     background: #E35244 !important;
 }
+.w-big{
+    width: 200px !important;
+}
 .nav{
     border-radius: 25px !important;
     margin: 15px !important;
