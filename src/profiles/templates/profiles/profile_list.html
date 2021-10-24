@@ -23,7 +23,7 @@
                     <div class="thirteen wide column">
                         <h3>{{obj.user}}</h3>
                         <p>{{obj.bio}}</p>
-                        <Button class="ui black button mb-5 w-big">See Profile</Button>
+                        <a href={{obj.get_absolute_url}}><Button class="ui black button mb-5 w-big">See Profile</Button></a>
                     
                     <!--For adding friends-->
                     {% if obj.user not in rel_receiver and obj.user not in rel_sender %}
