@@ -20,6 +20,32 @@ body{
 .btnSend{
     background: #E35244 !important;
 }
+.like-btn{
+    width: fit-content !important;
+}
+.imgLike{
+    width: 65px !important;
+    height: 65px !important;
+}
+.imgLike:hover{
+    animation: bounce 1s linear !important;
+}
+@keyframes bounce{
+    20%,50%,80%,to{
+        transform: translateY(0) !important;
+    }
+    40%{
+        transform: translateY(-30px) !important;
+    }
+    70%{
+        transform: translateY(-15px) !important;
+    }
+    90%{
+        transform: translateY(-4px) !important;
+    }
+}
+
+
 .w-big{
     width: 200px !important;
 }

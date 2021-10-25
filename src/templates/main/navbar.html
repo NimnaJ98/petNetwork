@@ -1,12 +1,16 @@
+{% load static %}
 <div class="ui inverted menu nav mb-7">
     <div class="ui container">
-      <a href="" class="item">
-          <h3>SmaPetz</h3>
-      </a>
+        <div class="ui item">
+            <img src="{% static 'images\bg.png' %}" style="width: 100px; height: 70px; margin-bottom: 3px;">
+        </div>
+        <a href="" class="item">
+            <h3>SmaPetz</h3>
+        </a>
       {% if request.user.is_authenticated %}
       <a href="" class="item">
         <i class="home icon"></i>
-          Home
+        Home
       </a>
       {% endif %}
   
