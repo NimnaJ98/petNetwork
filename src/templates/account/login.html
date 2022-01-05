@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<h1>{% trans "Sign In" %}</h1>
+<!--<h1>{% trans "Sign In" %}</h1>-->
 
 {% get_providers as socialaccount_providers %}
 
@@ -29,22 +29,31 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+<div class="ui floating message" style="margin-top: 25px; border-radius: 15px;">
+  <p>{% blocktrans %}If you have not created an account yet, then please
+    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+</div>
+
 {% endif %}
 
 
-<div class="ui grid">
-  <div class="six wide column">
-  <form class="login ui form" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-    <button class="ui button secondary" type="submit">{% trans "Sign In" %}</button>
-  </form> 
+<div class="ui grid" style="margin-top: 25px;">
+  <div class="row" style="background-color: rgb(240, 245, 179);border-radius: 25px;">
+    <div class="ten wide column">
+      <img src={% static 'images/bg.png' %} style="width:max-content; height: 350px;"> 
+     </div>
+    <div class="six wide column">
+      <form class="login ui form" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+      <br> <br>
+      <button class="ui button secondary" type="submit">{% trans "Sign In" %}</button>
+      </form> 
+    </div>
   </div>
 </div>
 {% endblock %}
