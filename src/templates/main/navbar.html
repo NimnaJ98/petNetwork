@@ -32,7 +32,10 @@
       <div class="right menu">
           {% if request.user.is_authenticated %}
           <div class="ui item">
-              <div class="ui floating dropdown icon black button">Friends
+              
+              <div class="ui floating dropdown icon black button">
+                <i class="paw icon"></i> &nbsp;
+                  Friends
                   <i class="dropdown icon"></i>
                   <div class="menu">
                       <a href="{{path_to_all_profiles}}" class="
@@ -54,7 +57,7 @@
                           active
                       {% endif %}
                            item">
-                          Received Invites
+                          Received Invites &nbsp; <div class="ui red horizontal label">{{invites_num}}</div>
                       </a>
                   </div>
                </div>
@@ -74,7 +77,8 @@
                   active
               {% endif %}
                    item">
-                <i class="paw icon"></i>
+                
+                <img src={{picture.url}} class="ui avatar image"> &nbsp;
                    {{ request.user }}
               </a>
   
