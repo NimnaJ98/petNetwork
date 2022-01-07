@@ -7,7 +7,7 @@
 
 {% block content %}
     <!--modal-->
-    <div class="ui modal petmodal">
+    <div class="ui modal petmodal" >
         <i class="close icon"></i>
         <div class="header">
             Update Your Profile
@@ -25,7 +25,8 @@
                     {{form.as_p}}   
                         
                         
-                    <div class="actions">
+                    <div class="actions mt-5">
+                        
                         <button class="ui black right labeled icon button" type="submit">
                             Update
                             <i class="checkmark icon"></i>
@@ -38,21 +39,21 @@
         
 
 
-    <div class="ui segment">
+    <div class="ui segment" style="width: 75%; margin: auto;">
         {% if confirm %}
             <div class="ui orange message">Your profile has been updated.</div>
         {% endif %} 
-        <h3>My Profile: {{request.user}}</h3>
+        <h3>Profile: {{request.user}}</h3>
             <div class="ui grid">
                 <div class="row">
                     <div class="six wide column">
                             <img src="{{profile.avatar.url}}" class="ui medium rounded image">
                             <div class="row mt-5">
-                                <button class="ui secondary button" id='modal-btn'>Update Your Profile</button>
+                                <button class="ui secondary button mt-5" id='modal-btn'>Update Your Profile</button>
                             </div>
                         </div>
                         <div class="ten wide column">
-                            <table class="ui table">
+                            <table class="ui celled orange table" style="border-color: #E35244;"> 
                                 <tbody>
                                     <tr>
                                         <td>Username</td>

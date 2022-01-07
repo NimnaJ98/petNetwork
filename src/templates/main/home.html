@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block title %}
@@ -7,9 +8,26 @@
 
 
 {% block content %}
-{{hello}}
-<br>
-{{user}}
+<div class="ui grid" style="width: 50%; margin: auto;">
+    <div class="ui floating secondary message" style="margin-top: 25px; border-radius: 15px; ">
+        <h4 class="ui header">
+        <img src={{picture.url}} class="ui avatar image"> &nbsp;
+    Welcome to SmaPetz {{user}}!</h4>
+    </div>
+</div>
+<div class="ui segment" style="width: 400px !important;">
+    <div class="twelve wide column">
+        <div class="ui segment">
+            <img src={{picture.url}} class="ui avatar image"> &nbsp;
+        </div>
+    </div>
+    <div class="four wide column">
+        <div class="ui segment">
+            <img src={{picture.url}} class="ui avatar image"> &nbsp;
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
 
 

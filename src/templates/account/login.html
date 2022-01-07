@@ -29,15 +29,14 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<div class="ui floating message" style="margin-top: 25px; border-radius: 15px;">
+<div class="ui floating message" style="margin-top: 25px; border-radius: 15px; width: 75%; margin-left: 145px;">
   <p>{% blocktrans %}If you have not created an account yet, then please
     <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
 </div>
 
 {% endif %}
 
-
-<div class="ui grid" style="margin-top: 25px;">
+<div class="ui grid" style="margin-top: 50px; width: 75%; margin: auto;">
   <div class="row" style="background-color: rgb(240, 245, 179);border-radius: 25px;">
     <div class="ten wide column">
       <img src={% static 'images/bg.png' %} style="width:max-content; height: 350px;"> 

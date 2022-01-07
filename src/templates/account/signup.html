@@ -5,11 +5,11 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="ui floating message" style="margin-top: 25px; border-radius: 15px;">
+<div class="ui floating message" style="margin-top: 25px; border-radius: 15px; width: 75%; margin-left: 145px;">
   <!--<h1>{% trans "Sign Up" %}</h1>-->
   <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 </div>
-<div class="ui grid" style="margin-top: 25px;">
+<div class="ui grid" style="margin-top: 50px;  width: 75%; margin: auto; ">
   <div class="row" style="background-color: rgb(240, 245, 179);border-radius: 25px;">
     <div class="ten wide column">
      <img src={% static 'images/bg.png' %} style="width:max-content; height: 350px;">
